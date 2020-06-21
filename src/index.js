@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Car from './App';
+import ToRender from './App';
 
-ReactDOM.render(<Car />, document.getElementById("root"))
+ReactDOM.render(<ToRender />, document.getElementById("root"))

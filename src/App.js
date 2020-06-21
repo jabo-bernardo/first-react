@@ -1,14 +1,48 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import './mysass.scss'
 
-class Car extends React.Component {
+class MyForm extends React.Component {
+
+    constructor(props) {
+
+        super(props);
+        this.state = {
+            username: ''
+        };
+
+    }
+
+    inputSubmitHandler = e => {
+        e.preventDefault();
+        alert(`You are submitting ${this.state.username}`)
+    }
+
+    inputChangeHandler = e => {
+
+        this.setState(
+            { username: e.target.value }
+        )
+
+    }
 
     render() {
+        let header = '';
+        if(this.state.username)
+            header = <h1>Hello { this.state.username }</h1>
+        else
+            header = ''
 
-        return <h1>I am a Car!</h1>
+        return (
+            <form onSubmit={ this.inputSubmitHandler }>
+                { header }
+                <p>Enter your name: </p>
+                <input type="text" onChange={ this.inputChangeHandler }/>
+                <input type="submit"/>
+            </form>
+        )
 
     }
 
 }
 
-export default Car
+export default MyForm
